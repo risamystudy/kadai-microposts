@@ -2,7 +2,7 @@
   <ul class="list-unstyled">
     <% users.each do |user| %>
       <li class="mb-3 d-flex">
-        <img class="rounded me-2" src="<%= gravatar_url(user, { size:64 }) %>" alt="">
+        <img class="rounded me-2" src="<%= gravatar_url(user, { size: 64 }) %>" alt="">
         <div>
           <div>
             <%= user.name %>
