@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @pagy, @microposts = pagy(@user.microposts.order(id: :desc))
+    counts(@user)
   end
 
   def new
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
+
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
       redirect_to @user
